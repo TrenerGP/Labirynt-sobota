@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour
     Vector3 velocity;
     CharacterController characterController;
 
+    public Transform groundCheck;
+    public LayerMask groundMask;
+
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -21,6 +24,26 @@ public class PlayerController : MonoBehaviour
     {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
+
+        RaycastHit hit;
+        if(Physics.Raycast(groundCheck.position, 
+            transform.TransformDirection(Vector3.down), 
+            out hit, 0.4f, groundMask))
+        {
+            string terrainType = hit.collider.gameObject.tag;
+            switch (terrainType)
+            {
+                case "Fast":
+                    speed = 20f;
+                    break;
+                case "Slow":
+                    speed = 5f;
+                    break;
+                default:
+                    speed = 10f;
+                    break;
+            }
+        }
 
         Vector3 move = transform.right * x + transform.forward * z;
         move += Vector3.down;
