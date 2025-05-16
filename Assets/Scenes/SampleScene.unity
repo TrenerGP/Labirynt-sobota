@@ -130,8 +130,8 @@ GameObject:
   - component: {fileID: 138818710}
   - component: {fileID: 138818709}
   - component: {fileID: 138818708}
-  - component: {fileID: 138818707}
   - component: {fileID: 138818706}
+  - component: {fileID: 138818711}
   m_Layer: 0
   m_Name: CrystalPickup
   m_TagString: Pickup
@@ -160,19 +160,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000004, y: 2.0000005, z: 1.0000002}
   m_Center: {x: 0.00000005960466, y: 0, z: -0.00000008940697}
---- !u!114 &138818707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 138818705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38d23bc33e44e2c47813b81d8a8fe089, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 100
 --- !u!23 &138818708
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -241,6 +228,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &138818711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138818705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01ce309609f3164e9241c4a4a8c9a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 100
+  points: 5
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,8 +634,8 @@ GameObject:
   - component: {fileID: 541949282}
   - component: {fileID: 541949281}
   - component: {fileID: 541949280}
-  - component: {fileID: 541949279}
   - component: {fileID: 541949278}
+  - component: {fileID: 541949283}
   m_Layer: 0
   m_Name: FreezeTimePickup
   m_TagString: Pickup
@@ -663,19 +664,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000004, y: 2.0000005, z: 1.0000002}
   m_Center: {x: 0.00000005960466, y: 0, z: -0.00000008940697}
---- !u!114 &541949279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 541949277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38d23bc33e44e2c47813b81d8a8fe089, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 100
 --- !u!23 &541949280
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -744,6 +732,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &541949283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541949277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cf925f44436147458533929d47cce42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 100
+  freezeTime: 10
 --- !u!1 &688191626
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,8 +757,8 @@ GameObject:
   - component: {fileID: 688191631}
   - component: {fileID: 688191630}
   - component: {fileID: 688191629}
-  - component: {fileID: 688191628}
   - component: {fileID: 688191627}
+  - component: {fileID: 688191632}
   m_Layer: 0
   m_Name: LoseTimePickup
   m_TagString: Pickup
@@ -785,19 +787,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000004, y: 2.0000005, z: 1.0000002}
   m_Center: {x: 0.00000005960466, y: 0, z: -0.00000008940697}
---- !u!114 &688191628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 688191626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38d23bc33e44e2c47813b81d8a8fe089, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 100
 --- !u!23 &688191629
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -866,6 +855,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &688191632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688191626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cafbe6f10e85a0c4cbec1f76c938876f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 100
+  timeModifier: -5
 --- !u!1 &722262483
 GameObject:
   m_ObjectHideFlags: 0
@@ -1300,6 +1303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToEnd: 10
   points: 0
+  speedModifier: 0
   redKey: 0
   greenKey: 0
   blueKey: 0
