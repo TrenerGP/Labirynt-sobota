@@ -35,8 +35,39 @@ public class Lock : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && canOpen && !unlocked)
         {
-            key.SetBool("useKey", true);
+            key.SetBool("useKey", CheckKey());
         }
     }
 
+    public void UseKey()
+    {
+        foreach (var door in doors)
+        {
+            door.Open();
+        }
+    }
+
+    public bool CheckKey()
+    {
+        if (GameManager.gameManager.redKey>0 && myColor==KeyColor.Red)
+        {
+            unlocked = true;
+            GameManager.gameManager.redKey--;
+            return true;
+        }
+        else if (GameManager.gameManager.blueKey > 0 && myColor == KeyColor.Blue)
+        {
+            unlocked = true;
+            GameManager.gameManager.blueKey--;
+            return true;
+        }
+        else if (GameManager.gameManager.greenKey > 0 && myColor == KeyColor.Green)
+        {
+            unlocked = true;
+            GameManager.gameManager.greenKey--;
+            return true;
+        }
+        Debug.Log("You don't have a key!");
+        return false;
+    }
 }
