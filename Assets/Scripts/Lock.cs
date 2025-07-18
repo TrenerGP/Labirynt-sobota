@@ -1,3 +1,4 @@
+using System.Drawing;
 using UnityEngine;
 
 public class Lock : MonoBehaviour
@@ -8,9 +9,15 @@ public class Lock : MonoBehaviour
     bool unlocked;
     Animator key;
 
+    public Material red;
+    public Material green;
+    public Material blue;
+    public Renderer myLock;
+
     private void Start()
     {
         key = GetComponent<Animator>();
+        SetMyColor();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -69,5 +76,21 @@ public class Lock : MonoBehaviour
         }
         Debug.Log("You don't have a key!");
         return false;
+    }
+
+    void SetMyColor()
+    {
+        switch (myColor)
+        {
+            case KeyColor.Red:
+                myLock.material = red;
+                break;
+            case KeyColor.Green:
+                myLock.material = green;
+                break;
+            case KeyColor.Blue:
+                myLock.material = blue;
+                break;
+        }
     }
 }

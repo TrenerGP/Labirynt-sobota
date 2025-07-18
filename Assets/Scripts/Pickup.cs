@@ -3,10 +3,12 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
     public Vector3 rotationSpeed;
+    AudioClip pickClip;
 
     public virtual void Picked()
     {
         Debug.Log("Pickup collected");
+        GameManager.gameManager.PlayClip(pickClip);
         Destroy(this.gameObject);
     }
 

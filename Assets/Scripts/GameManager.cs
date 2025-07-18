@@ -5,6 +5,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager;
 
+    public MusicScript musicScript;
+    AudioSource audioSource;
+    public AudioClip resumeClip;
+    public AudioClip pauseClip;
+    public AudioClip winClip;
+    public AudioClip loseClip;
+
     public int timeToEnd;
     public int points;
     public float speedModifier;
@@ -15,11 +22,19 @@ public class GameManager : MonoBehaviour
 
     bool gamePaused = false;
     bool win = false;
+    bool lessTime = false;
 
     private void Start()
     {
         if (gameManager == null) gameManager = this;
+        audioSource = GetComponent<AudioSource>();
         InvokeRepeating(nameof(Stopper), 1f, 1f);
+    }
+
+    public void PlayClip(AudioClip playClip)
+    {
+        audioSource.clip = playClip;
+        audioSource.Play();
     }
 
     private void ResetSpeed()
@@ -60,6 +75,16 @@ public class GameManager : MonoBehaviour
     {
         timeToEnd--;
         Debug.Log($"Time: {timeToEnd} s");
+        if(timeToEnd<20 && !lessTime)
+        {
+            LessTimeOn();
+            lessTime = true;
+        }
+        if (timeToEnd>=20 && lessTime)
+        {
+            LessTimeOff();
+            lessTime = false;
+        }
         if (timeToEnd<=0)
         {
             EndGame();
@@ -101,6 +126,8 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
+        musicScript.OnPauseGame();
+        PlayClip(pauseClip);
         Debug.Log("Game Paused");
         gamePaused = true;
         Time.timeScale = 0f;
@@ -108,8 +135,20 @@ public class GameManager : MonoBehaviour
 
     public void ResumeGame()
     {
+        musicScript.OnResumeGame();
+        PlayClip(resumeClip);
         Debug.Log("Game Resumed");
         gamePaused = false;
         Time.timeScale = 1f;
+    }
+
+    public void LessTimeOn()
+    {
+        musicScript.PitchThis(1.58f);
+    }
+
+    public void LessTimeOff()
+    {
+        musicScript.PitchThis(1f);
     }
 }
