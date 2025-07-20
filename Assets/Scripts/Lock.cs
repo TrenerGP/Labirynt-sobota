@@ -26,6 +26,7 @@ public class Lock : MonoBehaviour
         {
             canOpen = true;
             Debug.Log("You can open door");
+            GameManager.gameManager.useInfo.text = "Press E to open lock";
         }
     }
 
@@ -35,6 +36,7 @@ public class Lock : MonoBehaviour
         {
             canOpen = false;
             Debug.Log("You cannot open door");
+            GameManager.gameManager.useInfo.text = "";
         }
     }
 
@@ -60,18 +62,24 @@ public class Lock : MonoBehaviour
         {
             unlocked = true;
             GameManager.gameManager.redKey--;
+            GameManager.gameManager.redKeyText.text = 
+                GameManager.gameManager.redKey.ToString();
             return true;
         }
         else if (GameManager.gameManager.blueKey > 0 && myColor == KeyColor.Blue)
         {
             unlocked = true;
             GameManager.gameManager.blueKey--;
+            GameManager.gameManager.blueKeyText.text =
+                GameManager.gameManager.blueKey.ToString();
             return true;
         }
         else if (GameManager.gameManager.greenKey > 0 && myColor == KeyColor.Green)
         {
             unlocked = true;
             GameManager.gameManager.greenKey--;
+            GameManager.gameManager.greenKeyText.text =
+                GameManager.gameManager.greenKey.ToString();
             return true;
         }
         Debug.Log("You don't have a key!");
